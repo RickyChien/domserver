@@ -1,0 +1,9 @@
+.*
+!.gitignore
+*~
+tmp/
+etc/
+bin/
+log/
+sql/
+run/
