@@ -19,13 +19,17 @@ setup_database_connection();
 require_once(LIBWWWDIR . '/common.php');
 require_once(LIBWWWDIR . '/auth.team.php');
 
+$target = 'team/';
+
+/*
 if ( logged_in() ) {
 	$target = 'team/';
-} else if ( false ) { /* FIXME: test jury login? */
+} else if ( false ) { // FIXME: test jury login?
 	$target = 'jury/';
 } else {
 	$target = 'public/';
 }
+*/
 
 header('HTTP/1.1 302 Please see this page');
 header('Location: ' . $target);
