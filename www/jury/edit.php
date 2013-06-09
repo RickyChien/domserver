@@ -33,10 +33,6 @@ if ( ! preg_match('/^[._a-zA-Z0-9?&=]*$/', $referrer ) ) error ("Invalid charact
 require(LIBWWWDIR . '/checkers.jury.php');
 
 if ( !isset($_POST['cancel']) ) {
-	if ( $_FILES['problem_file']['size'] !== 0 && $_FILES['problem_file']['type'] !== 'application/pdf' ) {
-		error("Upload file format must be PDF.");
-	}
-
 	foreach ($data as $i => $itemdata ) {
 		if ( !empty($skipwhenempty) && empty($itemdata[$skipwhenempty]) ) {
 			continue;
@@ -62,7 +58,7 @@ if ( !isset($_POST['cancel']) ) {
 		}
 		check_sane_keys($itemdata);
 
-		if ( $_FILES['problem_file']['size'] !== 0 ) {
+		if ( !empty($_FILES['problem_file']['tmp_name']) ) {
 			$itemdata['prob_file'] = file_get_contents($_FILES['problem_file']['tmp_name']);
 		}
 
