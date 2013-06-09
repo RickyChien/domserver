@@ -115,8 +115,8 @@ for ($i = 0; $i < $rowsCount; $i += 2) {
 	echo "<p>Runtime : " . $testcase_rows[$i]['runtime'] . " sec</p>";
 	echo "<p>Result : " . printresult($testcase_rows[$i]['runresult'], TRUE) . "</p>";
 
-	if ( $testcase_rows[$i]['runresult'] == 'wrong-answer' AND
-		 $testcase_rows[$i]['testcasetype'] == '1') {
+	if ( $testcase_rows[$i]['runresult'] == 'wrong-answer' OR
+		 $testcase_rows[$i + 1]['runresult'] == 'wrong-answer') {
 		
 		$tid = $testcase_rows[$i]['tid'];
 		echo "<p>Download :\t<a href=\"./submission_details.php?tid=" . urlencode($tid) . 
@@ -127,7 +127,7 @@ for ($i = 0; $i < $rowsCount; $i += 2) {
 		if ( strlen(@$testcase_rows[$i]['output_run']) > 0 ) {
 			echo "<center><button id=\"watch\" type=\"button\" class=\"btn btn-mini btn-link\" data-toggle=\"button\" onclick=\"javascript:toggleOutput('output_run_$i')\">" . 
 				 "Click to watch the program output</button></center>";
-			echo "<pre id=\"output_run_$i\" class=\"output_run\">\n". htmlspecialchars(@$testcase_rows[0]['output_run'])."\n</pre>\n\n";
+			echo "<pre id=\"output_run_$i\" class=\"output_run\">\n". htmlspecialchars(@$testcase_rows[$i]['output_run'])."\n</pre>\n\n";
 		}
 	}
 
