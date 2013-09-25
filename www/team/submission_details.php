@@ -94,7 +94,7 @@ if ( $row['result'] == 'wrong-answer' ) {
 	echo '<div class="innerblock">';
 	echo '<div class="alert alert-error">';
 	echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-	echo '<strong>Notice!&nbsp</strong>You got wrong result from our judging.<br>Here provide open testcase(s) for download and test.';
+	echo '<strong>Notice!&nbsp</strong>You got a wrong answer.<br>Here provided the open testcase(s) for you to test.';
 	echo '</div>';
 	echo '</div>';
 }

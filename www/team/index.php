@@ -117,6 +117,7 @@ $clarifications = $DB->q('SELECT c.*, u.type AS unread FROM clarification c
 
 $problems = $DB->q('TABLE SELECT probid, color, prob_file, OCTET_LENGTH(prob_file) AS size FROM problem');
 
+// Removed because we didn't use it
 /*
 echo "<h1>Problem Overview</h1>\n";
 
