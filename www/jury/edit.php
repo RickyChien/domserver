@@ -77,7 +77,7 @@ if ( !isset($_POST['cancel']) ) {
 			}
 			check_sane_keys($prikey);
 
-			$DB->q("UPDATE $t SET %S, prob_file = %s WHERE %S", $itemdata, $content, $prikey);
+			$DB->q("UPDATE $t SET %S WHERE %S", $itemdata, $prikey);
 			auditlog($t, implode(', ', $prikey), 'updated');
 		}
 	}
