@@ -192,7 +192,7 @@ function initFileUploads() {
 	input.type = 'button';
 	input.value = selecttext;
 	input.id = "codebutton";
-	input.className = 'btn';
+	$("#codebutton").filestyle({classInput: "input-small"});
 	fakeFileUpload.appendChild(input);
 	var x = document.getElementsByTagName('input');
 	for (var i=0;i<x.length;i++) {
@@ -235,14 +235,24 @@ function collapse(x){
 }
 
 function addFileUpload() {
+	var span = document.createElement('span');
+	span.className = 'upload_btn';
+	document.getElementById('auxfiles').appendChild( span );
+
 	var input = document.createElement('input');
 	input.type = 'file';
 	input.name = 'code[]';
 	input.size = '50';
-	var br = document.createElement('br');
+	span.appendChild( input );
 
-	document.getElementById('auxfiles').appendChild( input );
+	var br = document.createElement('br');
 	document.getElementById('auxfiles').appendChild( br );
+
+	// Reset all input file
+	$('input[type="file"]').filestyle({
+		classInput: "input-medium",
+		buttonText: 'Upload'
+	});
 }
 
 function togglelastruns() {

@@ -57,14 +57,14 @@ echo "<div id=\"submitlist\">\n";
 
 echo "<h1>Submissions</h1>\n\n";
 
-
 if ( ENABLE_WEBSUBMIT_SERVER && $fdata['cstarted'] ) {
 	echo addForm('upload.php','post',null,'multipart/form-data', null, ' onreset="resetUploadForm('.$refreshtime .');"');
 	echo "<div id=\"submitform\">\n\n";
 	echo "<span class=\"fileinputs\">\n\t";
-	echo "<input type=\"file\" name=\"code[]\" title=\"Upload file\" / >";
+	echo '<input type="file" class="filestyle" data-buttontext="Upload" data-classInput="input-medium" name="code[]">';
 	echo "</span>";
 
+	// For customizing button style, so I remove this temporarily
 	//echo "<script type=\"text/javascript\">initFileUploads();</script>\n\n";
 
 	$probs = array();
@@ -84,14 +84,15 @@ if ( ENABLE_WEBSUBMIT_SERVER && $fdata['cstarted'] ) {
 
 	echo "</div>";
 
-	/*
+	
 	if ( dbconfig_get('sourcefiles_limit',100) > 1 ) {
-		echo "<br /><span id=\"auxfiles\"></span>\n" .
-		    "<input type=\"button\" name=\"addfile\" id=\"addfile\" " .
-		    "value=\"Add another file\" onclick=\"addFileUpload();\" " .
-		    "disabled=\"disabled\" />\n";
+		echo "<span id=\"auxfiles\"></span>\n" .
+			"<span class=\"upload_btn\">" .
+		  "<input type=\"button\" class=\"btn\" name=\"addfile\" id=\"addfile\" " .
+		  "value=\"Add another source file\" onclick=\"addFileUpload();\" />\n" .
+		  "</span>\n";
 	}
-	*/
+
 	echo "</p>\n</form>\n\n";
 }
 // call putSubmissions function from common.php for this team.

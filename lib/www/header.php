@@ -41,7 +41,6 @@ if(!isset($ajaxtitle)) {
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" type="text/css" />
 <script src="../bootstrap/js/jquery.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
-<script src="../bootstrap/js/bootstrap.file-input.js"></script>
 
 <?php
 if ( IS_JURY ) {
