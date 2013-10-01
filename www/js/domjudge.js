@@ -243,6 +243,7 @@ function addFileUpload() {
 	input.type = 'file';
 	input.name = 'code[]';
 	input.size = '50';
+	input.multiple = "multiple";
 	span.appendChild( input );
 
 	var br = document.createElement('br');

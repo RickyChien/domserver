@@ -61,7 +61,7 @@ if ( ENABLE_WEBSUBMIT_SERVER && $fdata['cstarted'] ) {
 	echo addForm('upload.php','post',null,'multipart/form-data', null, ' onreset="resetUploadForm('.$refreshtime .');"');
 	echo "<div id=\"submitform\">\n\n";
 	echo "<span class=\"fileinputs\">\n\t";
-	echo '<input type="file" class="filestyle" data-buttontext="Upload" data-classInput="input-medium" name="code[]">';
+	echo '<input type="file" class="filestyle" data-buttontext="Upload" data-classInput="input-medium" name="code[]" multiple>';
 	echo "</span>";
 
 	// For customizing button style, so I remove this temporarily
