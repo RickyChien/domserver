@@ -266,15 +266,15 @@ h3.teamoverview {
 	padding-left: 1ex;
 }
 
-#submitlist,#clarlist {
-	width: 43%;
+#submitlist {
+	width: 690px;
+	float: left;
 	margin: 20px 20px 20px 50px;
 }
-#submitlist {
-	float: left;
-}
 #clarlist {
+	width: 600px;
 	float: left;
+	margin: 20px 20px 20px 50px;
 }
 .compilation-success {
 	color: green;
@@ -285,7 +285,7 @@ h3.teamoverview {
 	font-style: italic;
 }
 #submitform, .submissiondone {
-	text-align: center;
+	text-align: left;
 }
 #submitlist .list, #clarlist .list {
 	width: 100%;
@@ -465,4 +465,9 @@ div.hiddentestcase {
 .login_btn {
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+.upload_btn {
+	display: inline-block;
+	margin: 6px 6px 0px 6px;
 }
