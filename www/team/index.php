@@ -100,7 +100,7 @@ $restrictions = array( 'teamid' => $login );
 putSubmissions($cdata, $restrictions, null, $submitted);
 
 echo "</div>\n\n";
-
+/*
 echo "<div id=\"clarlist\">\n";
 
 $requests = $DB->q('SELECT * FROM clarification
@@ -117,6 +117,7 @@ $clarifications = $DB->q('SELECT c.*, u.type AS unread FROM clarification c
 
 
 $problems = $DB->q('TABLE SELECT probid, color, prob_file, OCTET_LENGTH(prob_file) AS size FROM problem');
+*/
 
 // Removed because we didn't use it
 /*
@@ -147,6 +148,7 @@ if ( $problems == NULL ) {
 
 echo "<br><br>";
 */
+/*
 echo "<h1>Clarifications</h1>\n";
 
 # FIXME: column width and wrapping/shortening of clarification text 
@@ -166,5 +168,5 @@ if ( $requests->count() == 0 ) {
 }
 
 echo "</div>\n";
-
+*/
 require(LIBWWWDIR . '/footer.php');
