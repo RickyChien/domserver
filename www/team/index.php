@@ -7,7 +7,7 @@
 require('init.php');
 $title = htmlspecialchars($teamdata['name']);
 
-// Download problem document PDF
+// Download problem file
 if ( isset($_GET['fetch']) && isset($_GET['probid']) ) {
 	downloadProblemFile($_GET['probid']);
 	exit(0);
@@ -126,7 +126,7 @@ if ( $problems == NULL ) {
 } else {
 	echo "<table class=\"table table-hover\">\n<thead>\n<tr>" . 
 		 "<th scope=\"col\">problem</th>" . 
-		 "<th scope=\"col\">document</th>" . 
+		 "<th scope=\"col\">file</th>" . 
 	     "</tr>\n</thead>\n<tbody>";
 
 	foreach ($problems as $prob) {
