@@ -440,11 +440,11 @@ function checkFileUpload($errorcode) {
 	}
 }
 
-function downloadProblemPDF($probid) {
+function downloadProblemFile($probid) {
 	global $DB;
 
 	$fetch = 'prob_file';
-	$filename = "problem" . $probid . ".pdf";
+	$filename = "problem" . $probid . ".rar";
 
 	$size = $DB->q("MAYBEVALUE SELECT OCTET_LENGTH($fetch)
 	                FROM problem WHERE probid = %s ",
@@ -453,7 +453,7 @@ function downloadProblemPDF($probid) {
 	// sanity check before we start to output headers
 	if ( $size===NULL || !is_numeric($size)) error("Problem while fetching testcase");
 
-	header("Content-Type: application/pdf; name=\"$filename\"");
+	header("Content-Type: application/x-rar-compressed; name=\"$filename\"");
 	header("Content-Disposition: inline; filename=\"$filename\"");
 	header("Content-Length: $size");
 

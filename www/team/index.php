@@ -9,7 +9,7 @@ $title = htmlspecialchars($teamdata['name']);
 
 // Download problem document PDF
 if ( isset($_GET['fetch']) && isset($_GET['probid']) ) {
-	downloadProblemPDF($_GET['probid']);
+	downloadProblemFile($_GET['probid']);
 	exit(0);
 }
 
@@ -100,9 +100,9 @@ $restrictions = array( 'teamid' => $login );
 putSubmissions($cdata, $restrictions, null, $submitted);
 
 echo "</div>\n\n";
-/*
-echo "<div id=\"clarlist\">\n";
 
+echo "<div id=\"clarlist\">\n";
+/*
 $requests = $DB->q('SELECT * FROM clarification
                     WHERE cid = %i AND sender = %s
                     ORDER BY submittime DESC, clarid DESC', $cid, $login);
@@ -115,12 +115,10 @@ $clarifications = $DB->q('SELECT c.*, u.type AS unread FROM clarification c
                           ORDER BY c.submittime DESC, c.clarid DESC',
                           $login, $cid, $login);
 
-
-$problems = $DB->q('TABLE SELECT probid, color, prob_file, OCTET_LENGTH(prob_file) AS size FROM problem');
 */
 
-// Removed because we didn't use it
-/*
+$problems = $DB->q('TABLE SELECT probid, allow_submit, color, prob_file, OCTET_LENGTH(prob_file) AS size FROM problem');
+
 echo "<h1>Problem Overview</h1>\n";
 
 if ( $problems == NULL ) {
@@ -132,22 +130,24 @@ if ( $problems == NULL ) {
 	     "</tr>\n</thead>\n<tbody>";
 
 	foreach ($problems as $prob) {
-		echo "<tr><td>$prob[probid]</td><td>";
+		if ( $prob['allow_submit'] == 1 ) {
+			echo "<tr><td>$prob[probid]</td><td>";
 
-		if ( $prob['size'] !== NULL ) {
-			echo "<a href=\"./index.php?fetch=prob_file&amp;probid=$prob[probid]\">Download</a>";
-		} else {
-			echo "<a>N/A</a>";
+			if ( $prob['size'] !== NULL ) {
+				echo "<a href=\"./index.php?fetch=prob_file&amp;probid=$prob[probid]\">Download</a>";
+			} else {
+				echo "<a>N/A</a>";
+			}
+
+			echo "</td></tr>";
 		}
-
-		echo "</td></tr>";
 	}
 
 	echo "</tbody></table>";
 }
 
 echo "<br><br>";
-*/
+
 /*
 echo "<h1>Clarifications</h1>\n";
 
@@ -166,7 +166,7 @@ if ( $requests->count() == 0 ) {
 } else {
 	putClarificationList($requests,$login);
 }
-
-echo "</div>\n";
 */
+echo "</div>\n";
+
 require(LIBWWWDIR . '/footer.php');

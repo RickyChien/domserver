@@ -15,9 +15,9 @@ $title = 'Problem '.htmlspecialchars(@$id);
 
 if ( ! preg_match('/^' . IDENTIFIER_CHARS . '*$/', $id) ) error("Invalid problem id");
 
-// Download problem document PDF
+// Download problem file
 if ( isset($_GET['fetch']) && isset($id) ) {
-	downloadProblemPDF($id);
+	downloadProblemFile($id);
 	exit(0);
 }
 
@@ -126,7 +126,7 @@ src="../images/b_help.png" class="smallpicto" alt="?" /></a></td></tr>
 <tr><td><label for="data_0__special_compare_">Special compare script:</label></td>
 <td><?php echo addInput('data[0][special_compare]', @$row['special_compare'], 30, 25)?></td></tr>
 
-<tr><td><label for="problem_file_">Problem document PDF:</label></td>
+<tr><td><label for="problem_file_">Problem file:</label></td>
 <td><?php echo addFileField('problem_file')?></td></tr>
 
 </table>
@@ -216,9 +216,9 @@ if ( !empty($data['special_compare']) ) {
 
 if ( !empty($data['prob_file']) ) {
 	echo "<tr>";
-	echo "<td scope=\"row\">Problem document PDF:</td>";
+	echo "<td scope=\"row\">Problem file:</td>";
 	echo "<td><a href=\"./problem.php?id=" . urlencode($data['probid']) . 
-		"&amp;fetch=prob_file\">Download PDF</a></td>";
+		"&amp;fetch=prob_file\">Download file</a></td>";
 	echo "</tr>";
 }
 
