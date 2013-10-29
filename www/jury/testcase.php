@@ -89,6 +89,8 @@ $title = 'Testcases for problem '.htmlspecialchars(@$probid);
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
+
 if ( ! $probid ) error("Missing or invalid problem id");
 
 echo "<h1>" . $title ."</h1>\n\n";
@@ -299,5 +301,7 @@ if ( IS_ADMIN ) {
 
 	echo "<br />" . addSubmit('Submit all changes') . addEndForm();
 }
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

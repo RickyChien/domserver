@@ -62,6 +62,8 @@ $jscolor=true;
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
+
 if ( IS_ADMIN && !empty($cmd) ):
 
 	echo "<h2>" .  htmlspecialchars(ucfirst($cmd)) . " problem</h2>\n\n";
@@ -248,5 +250,7 @@ echo "<h2>Submissions for " . htmlspecialchars($id) . "</h2>\n\n";
 
 $restrictions = array( 'probid' => $id );
 putSubmissions($cdata, $restrictions);
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

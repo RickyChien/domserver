@@ -35,6 +35,7 @@ setcookie('domjudge_balloonviewall', $viewall);
 $refresh = '30;url=balloons.php';
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Balloon Status</h1>\n\n";
 
 if ( isset($cdata['freezetime']) &&
@@ -162,5 +163,6 @@ if ( !empty($BALLOONS) ) {
 	echo "<p class=\"nodata\">No correct submissions yet... keep posted!</p>\n\n";
 }
 
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

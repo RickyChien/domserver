@@ -11,6 +11,7 @@ $title = 'Judgehosts';
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Judgehosts</h1>\n\n";
 
 @$cmd = @$_REQUEST['cmd'];
@@ -111,5 +112,7 @@ if ( IS_ADMIN ) {
 		addEndForm();
 
 }
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

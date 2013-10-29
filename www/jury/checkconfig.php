@@ -16,6 +16,8 @@ requireAdmin();
 
 $time_start = microtime(TRUE);
 
+echo "<div class='main-container'>\n";
+
 ?>
 
 <h1>Config Checker</h1>
@@ -547,5 +549,7 @@ echo "<p>Legend:
 <img src=\"../images/s_warn.png\"      alt=\"W\" class=\"picto\" /> Warning
 <img src=\"../images/s_error.png\"     alt=\"E\" class=\"picto\" /> Error
 </p>\n";
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

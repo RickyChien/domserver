@@ -15,6 +15,7 @@ $title = 'Refresh Cache';
 require(LIBWWWDIR . '/header.php');
 require(LIBWWWDIR . '/scoreboard.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Refresh Cache</h1>\n\n";
 
 requireAdmin();
@@ -91,5 +92,6 @@ $DB->q('DELETE FROM scoreboard_public
 $time_end = microtime(TRUE);
 
 echo "<p>Scoreboard cache refresh completed in ".round($time_end - $time_start,2)." seconds.</p>\n\n";
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

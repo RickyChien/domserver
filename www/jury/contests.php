@@ -42,6 +42,7 @@ if ( IS_ADMIN && isset($_POST['donow']) ) {
 $title = 'Contests';
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Contests</h1>\n\n";
 
 
@@ -179,5 +180,7 @@ if( count($res) == 0 ) {
 if ( IS_ADMIN ) {
 	echo "<p>" . addLink('contest') . "</p>\n\n";
 }
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

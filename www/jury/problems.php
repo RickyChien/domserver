@@ -11,6 +11,7 @@ $title = 'Problems';
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Problems</h1>\n\n";
 
 // Select all data, sort problems from the current contest on top.
@@ -90,5 +91,7 @@ if ( IS_ADMIN ) {
 	}
 	*/
 }
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

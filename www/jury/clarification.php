@@ -130,6 +130,8 @@ if ( isset($_POST['answer']) && isset($_POST['answered']) ) {
 require_once(LIBWWWDIR . '/header.php');
 require(LIBWWWDIR . '/clarification.php');
 
+echo "<div class='main-container'>\n";
+
 if ( ! $isgeneral ) {
 
 // display clarification thread
@@ -188,5 +190,7 @@ if ( $isgeneral ) {
 	echo "<h1>Send Response</h1>\n\n";
 	putClarificationForm("clarification.php", $cdata['cid'], $respid);
 }
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

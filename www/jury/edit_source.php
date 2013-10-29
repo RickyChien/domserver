@@ -48,6 +48,7 @@ if ( empty($submission) ) error ("Submission $id not found");
 $title = 'Edit Source: s' . $id;
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 
 echo '<h2><a name="source"></a>Edit submission ' .
 	"<a href=\"submission.php?id=$id\">s$id</a> source files</h2>\n\n";
@@ -84,5 +85,7 @@ echo addHidden('origsubmitid', $submission['origsubmitid'] === NULL ? $id : $sub
 echo addSubmit('submit');
 
 echo addEndForm();
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

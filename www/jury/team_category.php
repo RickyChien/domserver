@@ -19,6 +19,7 @@ if ( IS_ADMIN && ($cmd == 'add' || $cmd == 'edit') ) {
 	$jscolor = true;
 
 	require(LIBWWWDIR . '/header.php');
+	echo "<div class='main-container'>\n";
 	echo "<h2>" . htmlspecialchars(ucfirst($cmd)) . " category</h2>\n\n";
 
 	echo addForm('edit.php');
@@ -76,6 +77,8 @@ $title = "Category: " . htmlspecialchars($data['name']);
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
+
 echo "<h1>$title</h1>\n\n";
 
 echo "<table>\n";
@@ -120,6 +123,7 @@ if ( $teams->count() == 0 ) {
 	putTeamRow($cdata,$listteams);
 }
 
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');
 

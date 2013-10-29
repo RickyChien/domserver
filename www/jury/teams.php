@@ -27,6 +27,7 @@ $ncorrect = $DB->q('KEYTABLE SELECT teamid AS ARRAYKEY, COUNT(teamid) AS cnt
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Teams</h1>\n\n";
 
 if( $teams->count() == 0 ) {
@@ -101,5 +102,7 @@ if( $teams->count() == 0 ) {
 if ( IS_ADMIN ) {
 	echo "<p>" .addLink('team') . "</p>\n";
 }
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

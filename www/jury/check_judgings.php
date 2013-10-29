@@ -15,6 +15,8 @@ requireAdmin();
 
 $verify_multiple = isset($_REQUEST['verify_multiple']);
 
+echo "<div class='main-container'>\n";
+
 ?>
 
 <h1>Judging Verifier</h1>
@@ -145,5 +147,7 @@ if ( count($multiple)   ) {
 if ( count($verified)   ) flushresults("Automatically verified", $verified, TRUE);
 if ( count($earlier)    ) flushresults("Verified earlier", $earlier, TRUE);
 if ( count($nomatch)    ) flushresults("Without magic string", $nomatch, TRUE);
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

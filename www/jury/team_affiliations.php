@@ -11,6 +11,7 @@ $title = 'Affiliations';
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Affiliations</h1>\n\n";
 
 $res = $DB->q('SELECT a.*, COUNT(login) AS cnt FROM team_affiliation a
@@ -56,5 +57,7 @@ if( $res->count() == 0 ) {
 if ( IS_ADMIN ) {
 	echo "<p>" . addLink('team_affiliation') . "</p>\n\n";
 }
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

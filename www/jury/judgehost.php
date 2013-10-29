@@ -28,6 +28,7 @@ $title = 'Judgehost '.htmlspecialchars($row['hostname']);
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Judgehost ".printhost($row['hostname'])."</h1>\n\n";
 
 ?>
@@ -115,5 +116,6 @@ if( $res->count() == 0 ) {
 	echo "</tbody>\n</table>\n\n";
 }
 
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

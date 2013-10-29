@@ -9,6 +9,8 @@ require('init.php');
 $title = 'Jury interface';
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
+
 echo "<h1>DOMjudge Jury interface</h1>\n\n";
 
 if ( is_readable('../images/DOMjudgelogo.png') ) {
@@ -65,6 +67,7 @@ if ( is_readable('../images/DOMjudgelogo.png') ) {
 <p><br /><br /><br /><br /></p>
 
 <?php
+echo "</div>\n";
 putDOMjudgeVersion();
 
 require(LIBWWWDIR . '/footer.php');

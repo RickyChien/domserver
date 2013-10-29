@@ -40,6 +40,8 @@ if ( !empty($pcmd) ) {
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
+
 if ( IS_ADMIN && !empty($cmd) ):
 
 	echo "<h2>" . htmlspecialchars(ucfirst($cmd)) . " language</h2>\n\n";
@@ -132,5 +134,7 @@ echo "<h2>Submissions in " . htmlspecialchars($id) . "</h2>\n\n";
 
 $restrictions = array( 'langid' => $id );
 putSubmissions($cdata, $restrictions);
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

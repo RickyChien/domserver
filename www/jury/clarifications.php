@@ -15,6 +15,7 @@ $jury_member = getJuryMember();
 require(LIBWWWDIR . '/header.php');
 require(LIBWWWDIR . '/clarification.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Clarifications</h1>\n\n";
 
 echo "<p><a href=\"clarification.php\">Send Clarification</a></p>\n";
@@ -58,5 +59,7 @@ if ( $clarifications->count() == 0 ) {
 } else {
 	putClarificationList($clarifications,NULL);
 }
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

@@ -11,6 +11,7 @@ $pagename = basename($_SERVER['PHP_SELF']);
 require('init.php');
 require(LIBWWWDIR . '/scoreboard.php');
 
+
 $id = @$_GET['id'];
 $title = "Affiliation: " .htmlspecialchars(@$id);
 
@@ -23,6 +24,8 @@ if ( IS_ADMIN && ($cmd == 'add' || $cmd == 'edit') ) {
 	$title = "Affiliation: " . htmlspecialchars($cmd);
 
 	require(LIBWWWDIR . '/header.php');
+
+	echo "<div class='main-container'>\n";
 	echo "<h2>" . htmlspecialchars(ucfirst($cmd)) . " affiliation</h2>\n\n";
 
 	echo addForm('edit.php');
@@ -71,6 +74,7 @@ echo addHidden('cmd', $cmd) .
 
 
 require(LIBWWWDIR . '/header.php');
+echo "<div class='main-container'>\n";
 
 $data = $DB->q('TUPLE SELECT * FROM team_affiliation WHERE affilid = %s', $id);
 
@@ -136,5 +140,7 @@ if ( $teams->count() == 0 ) {
 
 	putTeamRow($cdata,$listteams);
 }
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

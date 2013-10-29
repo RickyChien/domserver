@@ -34,6 +34,7 @@ $jury_member = getJuryMember();
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>$title</h1>\n\n";
 
 $restrictions = array();
@@ -47,5 +48,7 @@ for($i=0; $i<count($viewtypes); ++$i) {
 echo "</p>\n" . addEndForm();
 
 putSubmissions($cdata, $restrictions, ($viewtypes[$view] == 'newest' ? 50 : 0));
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

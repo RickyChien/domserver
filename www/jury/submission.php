@@ -91,6 +91,7 @@ if ( isset($_REQUEST['claim']) || isset($_REQUEST['unclaim']) ) {
 // Headers might already have been included.
 require_once(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Submission s".$id;
 if ( $submdata['valid'] ) {
 	echo "</h1>\n\n";
@@ -419,6 +420,8 @@ togglelastruns();
 		}
 	}
 }
+
+echo "</div>\n";
 
 // We're done!
 

@@ -9,6 +9,8 @@
 require('init.php');
 $title = 'Generate Passwords';
 require(LIBWWWDIR . '/header.php');
+echo "<div class='main-container'>\n";
+
 requireAdmin();
 ?>
 
@@ -105,6 +107,8 @@ if ( isset($_POST['forteam']) ) {
 
 	echo "<hr />\n\n<p>Done.</p>\n\n";
 }
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');
 

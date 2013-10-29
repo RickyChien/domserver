@@ -13,6 +13,8 @@ $title = "Contest";
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
+
 if ( IS_ADMIN && !empty($_GET['cmd']) ):
 	$cmd = $_GET['cmd'];
 
@@ -126,5 +128,7 @@ if ( IS_ADMIN ) {
 		editLink('contest',$data['cid']) . "\n" .
 		delLink('contest','cid',$data['cid']) ."</p>\n\n";
 }
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

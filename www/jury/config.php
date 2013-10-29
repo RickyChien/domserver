@@ -58,6 +58,7 @@ if ( isset($_POST['save']) ) {
 $title = "Configuration";
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Configuration settings</h1>\n\n";
 
 echo addForm('config.php') . "<table>\n<thead>\n" .
@@ -116,5 +117,7 @@ foreach ( $LIBDBCONFIG as $key => $data ) {
 echo "</tbody>\n</table>\n<p>" .
 	addSubmit('Save', 'save') . addSubmit('Cancel', 'cancel') . "</p>" .
 	addEndForm();
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

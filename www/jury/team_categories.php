@@ -11,6 +11,7 @@ $title = 'Categories';
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Categories</h1>\n\n";
 
 $res = $DB->q('SELECT team_category.*, COUNT(login) AS numteams
@@ -49,5 +50,7 @@ if( $res->count() == 0 ) {
 if ( IS_ADMIN ) {
 	echo "<p>" . addLink('team_category') . "</p>\n\n";
 }
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

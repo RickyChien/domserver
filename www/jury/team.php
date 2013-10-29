@@ -25,6 +25,8 @@ if ( isset($_GET['cmd'] ) ) {
 require(LIBWWWDIR . '/header.php');
 require(LIBWWWDIR . '/scoreboard.php');
 
+echo "<div class='main-container'>\n";
+
 if ( IS_ADMIN && !empty($cmd) ):
 
 	echo "<h2>" . htmlspecialchars(ucfirst($cmd)) . " team</h2>\n\n";
@@ -188,5 +190,7 @@ echo "</h3>\n\n";
 
 $restrictions['teamid'] = $id;
 putSubmissions($cdata, $restrictions);
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

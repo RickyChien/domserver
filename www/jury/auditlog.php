@@ -12,7 +12,7 @@ $title = 'Activity log';
 require(LIBWWWDIR . '/header.php');
 
 requireAdmin();
-
+echo "<div class='main-container'>\n";
 echo "<h1>Activity log</h1>\n\n";
 
 $res = $DB->q('SELECT * FROM auditlog ORDER BY logtime DESC');
@@ -73,6 +73,6 @@ while ( $logline = $res->next() ) {
 	"</td></tr>\n";
 }
 echo "</table>\n\n";
-
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

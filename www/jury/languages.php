@@ -11,6 +11,7 @@ $title = 'Languages';
 
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
 echo "<h1>Languages</h1>\n\n";
 
 $res = $DB->q('SELECT * FROM language ORDER BY name');
@@ -49,5 +50,6 @@ if ( IS_ADMIN ) {
 	echo "<p>" . addLink('language') . "</p>\n\n";
 }
 
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

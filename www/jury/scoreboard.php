@@ -26,7 +26,11 @@ if ( !isset($_GET['clear']) ) {
 require(LIBWWWDIR . '/header.php');
 require(LIBWWWDIR . '/scoreboard.php');
 
+echo "<div class='main-container'>\n";
+
 // call the general putScoreBoard function from scoreboard.php
 putScoreBoard($cdata, NULL, FALSE, $filter);
+
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');

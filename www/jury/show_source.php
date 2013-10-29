@@ -215,6 +215,8 @@ $title = "Source: s$id";
 require(LIBWWWDIR . '/header.php');
 require(LIBWWWDIR . '/highlight.php');
 
+echo "<div class='main-container'>\n";
+
 // display highlighted content of the source files
 $sources = $DB->q('TABLE SELECT *
                    FROM submission_file LEFT JOIN submission USING(submitid)
@@ -280,8 +282,7 @@ if ( $submission['origsubmitid'] ) {
        echo "<p><a href=\"#origdiff\">Go to diff to original submission</a></p>\n\n";
 }
 
-
-
 echo $html;
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');
