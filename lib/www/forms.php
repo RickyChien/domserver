@@ -10,7 +10,7 @@
  * Helper function to create form fields, not to be called directly,
  * only by other functions below.
  */
-function addInputField($type, $name = null, $value = null, $attributes = '') {
+function addInputField($type, $name = null, $value = null, $attributes = '', $class = '') {
     if ( $name !== null && $type != 'hidden' ) {
 		$id = ' id="' . htmlspecialchars(strtr($name,'[]','__'));
 		if ( $type == 'radio' ) $id .= htmlspecialchars($value);
@@ -19,7 +19,7 @@ function addInputField($type, $name = null, $value = null, $attributes = '') {
         $id = '';
     }
 
-	return '<input type="'.$type.'"'.'class="btn"'.
+	return '<input type="'.$type.'"'.'class="'.$class.'"'.
 		($name  !== null ? ' name="'.htmlspecialchars($name).'"' : '') . $id .
 		($value !== null ? ' value="'.htmlspecialchars($value).'"' : '') .
 		$attributes . " />\n";
@@ -125,13 +125,13 @@ function addSelect($name, $values, $default = null, $usekeys = false, $multi = f
 function addSubmit($value, $name = null, $onclick = null, $enable = true) {
 	return addInputField('submit', $name, $value,
 		(empty($onclick) ? null : ' onclick="'.htmlspecialchars($onclick).'"') .
-		($enable ? '' : ' disabled="disabled"'));
+		($enable ? '' : ' disabled="disabled"'), 'btn');
 }
 /**
  * Form reset button, $value = caption
  */
 function addReset($value) {
-	return addInputField('reset', null, $value);
+	return addInputField('reset', null, $value, '', 'btn');
 }
 
 /**
@@ -174,7 +174,7 @@ function addEndForm()
 /**
  * File upload field
  */
-function addFileField($name, $size = null) {
+function addFileField($name, $size = null, $class = 'filestyle') {
 	return addInputField('file', $name , null,
-	                     (is_null($size) ? null : " size=\"".(int)($size).'"'));
+	                     (is_null($size) ? null : " size=\"".(int)($size).'"'), $class);
 }
