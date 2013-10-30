@@ -19,7 +19,7 @@ require(LIBWWWDIR . '/forms.php');
 // Don't use HTTP meta refresh, but javascript: otherwise we cannot
 // cancel it when the user starts editing the submit form. This also
 // provides graceful degradation without javascript present.
-$refreshtime = 30;
+$refreshtime = 60;
 
 $submitted = @$_GET['submitted'];
 
