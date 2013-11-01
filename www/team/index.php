@@ -47,7 +47,7 @@ if ( ENABLE_WEBSUBMIT_SERVER && $fdata['cstarted'] ) {
 	echo "\t\tdefault: return '';\n\t}\n}\n\n";
 }
 
-echo "initReload(" . $refreshtime . ");\n";
+//echo "initReload(" . $refreshtime . ");\n";
 echo "// -->\n</script>\n";
 
 // Put overview of team submissions (like scoreboard)
