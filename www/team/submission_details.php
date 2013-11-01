@@ -12,13 +12,14 @@ if ( isset($_GET['tid']) && isset($_GET['fetch']) && isset($_GET['md5'])) {
 	$tid = $_GET['tid'];
 	$fetch = $_GET['fetch'];
 	$md5 = $_GET['md5'];
-	$data= $DB->q("MAYBETUPLE SELECT OCTET_LENGTH($fetch) AS size, probid, rank
+	$data= $DB->q("MAYBETUPLE SELECT OCTET_LENGTH($fetch) AS size, testcasetype, probid, rank
                    FROM testcase WHERE testcaseid = %i AND md5sum_$fetch = %s", $tid, $md5);
 	$size = $data['size'];
+	$type = $data['testcasetype'];
 	$filename = $data['probid'] . $data['rank'] . "." . substr($fetch, 0, -3);
 
 	// Sanity check before we start to output headers
-	if ( $tid % 2 == 0 || $size === NULL || !is_numeric($size)) 
+	if ( $type == 0 || $size === NULL || !is_numeric($size))
 		error("Problem while fetching open testcase");
 
 	header("Content-Type: application/octet-stream; name=\"$filename\"");
