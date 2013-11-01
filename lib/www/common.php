@@ -440,20 +440,20 @@ function checkFileUpload($errorcode) {
 	}
 }
 
-function downloadProblemFile($probid) {
+function downloadProblemZIP($probid) {
 	global $DB;
 
 	$fetch = 'prob_file';
-	$filename = "problem" . $probid . ".rar";
+	$filename = "problem" . $probid . ".zip";
 
 	$size = $DB->q("MAYBEVALUE SELECT OCTET_LENGTH($fetch)
-	                FROM problem WHERE probid = %s ",
+	                FROM problem WHERE probid = %s AND allow_submit = 1",
 	                $probid);
 
 	// sanity check before we start to output headers
 	if ( $size===NULL || !is_numeric($size)) error("Problem while fetching testcase");
 
-	header("Content-Type: application/x-rar-compressed; name=\"$filename\"");
+	header("Content-Type: application/octet-stream; name=\"$filename\"");
 	header("Content-Disposition: inline; filename=\"$filename\"");
 	header("Content-Length: $size");
 

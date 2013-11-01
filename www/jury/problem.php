@@ -17,7 +17,7 @@ if ( ! preg_match('/^' . IDENTIFIER_CHARS . '*$/', $id) ) error("Invalid problem
 
 // Download problem file
 if ( isset($_GET['fetch']) && isset($id) ) {
-	downloadProblemFile($id);
+	downloadProblemZIP($id);
 	exit(0);
 }
 
