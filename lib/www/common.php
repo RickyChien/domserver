@@ -447,7 +447,10 @@ function downloadProblemZIP($probid) {
 	$filename = "problem" . $probid . ".zip";
 
 	$size = $DB->q("MAYBEVALUE SELECT OCTET_LENGTH($fetch)
-	                FROM problem WHERE probid = %s AND allow_submit = 1",
+	                FROM problem
+	                INNER JOIN contest
+	                ON (problem.cid = contest.cid AND contest.enabled = 1)
+	                WHERE probid = %s AND allow_submit = 1",
 	                $probid);
 
 	// sanity check before we start to output headers
