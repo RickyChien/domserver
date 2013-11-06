@@ -117,7 +117,8 @@ $clarifications = $DB->q('SELECT c.*, u.type AS unread FROM clarification c
 
 */
 
-$problems = $DB->q('TABLE SELECT probid, allow_submit, color, prob_file, OCTET_LENGTH(prob_file) AS size FROM problem');
+$problems = $DB->q('TABLE SELECT probid, cid, allow_submit, color, prob_file, OCTET_LENGTH(prob_file) AS size FROM problem
+										WHERE cid = %i AND allow_submit = 1', $cid);
 
 echo "<h1>Problem Overview</h1>\n";
 
@@ -130,17 +131,15 @@ if ( $problems == NULL ) {
 	     "</tr>\n</thead>\n<tbody>";
 
 	foreach ($problems as $prob) {
-		if ( $prob['allow_submit'] == 1 ) {
-			echo "<tr><td>$prob[probid]</td><td>";
+		echo "<tr><td>$prob[probid]</td><td>";
 
-			if ( $prob['size'] !== NULL ) {
-				echo "<a href=\"./index.php?fetch=prob_file&amp;probid=$prob[probid]\">Download</a>";
-			} else {
-				echo "<a>N/A</a>";
-			}
-
-			echo "</td></tr>";
+		if ( $prob['size'] !== NULL ) {
+			echo "<a href=\"./index.php?fetch=prob_file&amp;probid=$prob[probid]\">Download</a>";
+		} else {
+			echo "<a>N/A</a>";
 		}
+
+		echo "</td></tr>";
 	}
 
 	echo "</tbody></table>";
