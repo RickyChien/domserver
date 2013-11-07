@@ -293,9 +293,11 @@ function do_logout()
 	auditlog('team', $login, 'logged out', $_SERVER['REMOTE_ADDR']);
 
 	require(LIBWWWDIR . '/header.php');
+	echo "<div class='main-container'>\n";
 	echo "<h1>Logged out</h1>\n\n<p>Successfully logged out as team " .
 	    htmlspecialchars($login) . ".</p>\n" .
 	    "<p><a href=\"./\">Click here to login again.</a></p>\n\n";
+	echo "</div>\n\n";
 	require(LIBWWWDIR . '/footer.php');
 	exit;
 }
