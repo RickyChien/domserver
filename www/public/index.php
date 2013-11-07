@@ -27,6 +27,8 @@ $menu = false;
 require(LIBWWWDIR . '/header.php');
 require(LIBWWWDIR . '/scoreboard.php');
 
+echo "<div class='main-container'>\n";
+
 $isstatic = @$_SERVER['argv'][1] == 'static' || isset($_REQUEST['static']);
 
 if ( ! $isstatic ) {
@@ -37,5 +39,7 @@ if ( ! $isstatic ) {
 
 // call the general putScoreBoard function from scoreboard.php
 putScoreBoard($cdata, null, $isstatic, $filter);
+
+echo "</div>\n\n";
 
 require(LIBWWWDIR . '/footer.php');

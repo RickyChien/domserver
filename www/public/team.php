@@ -18,8 +18,11 @@ $title = 'Team '.htmlspecialchars(@$id);
 $menu = false;
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
+
 putTeam($id);
 
-echo "<p><a href=\"./\">return to scoreboard</a></p>\n\n";
+echo "<br><p><a href=\"./\">return to scoreboard</a></p>\n\n";
+echo "</div>\n\n";
 
 require(LIBWWWDIR . '/footer.php');
