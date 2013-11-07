@@ -272,9 +272,9 @@ h3.teamoverview {
 	margin: 20px 20px 20px 50px;
 }
 #clarlist {
-	width: 580px;
+	min-width: 400px;
 	float: left;
-	margin: 20px 20px 20px 50px;
+	margin: 20px 20px 20px 30px;
 }
 .compilation-success {
 	color: green;
