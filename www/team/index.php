@@ -47,7 +47,7 @@ if ( ENABLE_WEBSUBMIT_SERVER && $fdata['cstarted'] ) {
 	echo "\t\tdefault: return '';\n\t}\n}\n\n";
 }
 
-//echo "initReload(" . $refreshtime . ");\n";
+echo "initReload(" . $refreshtime . ");\n";
 echo "// -->\n</script>\n";
 
 // Put overview of team submissions (like scoreboard)
@@ -64,18 +64,18 @@ if ( ENABLE_WEBSUBMIT_SERVER && $fdata['cstarted'] ) {
 	echo '<input type="file" class="filestyle" data-buttontext="Upload" data-classInput="input-medium" name="code[]" multiple>';
 	echo "</span>";
 
-	// For customizing button style
+	// Customize button style as well as setting up auto detect
 	echo "<script type=\"text/javascript\">window.addEventListener('load', initFileUploads);</script>\n\n";
 
 	$probs = array();
 	foreach($probdata as $probid => $dummy) {
-		$probs[$probid]=$probid;
+		$probs[$probid] = $probid;
 	}
-	$probs[''] = 'problem';
+	$probs[''] = 'select problem';
 	echo addSelect('probid', $probs, '', true);
 	$langs = $DB->q('KEYVALUETABLE SELECT langid, name FROM language
 			 WHERE allow_submit = 1 ORDER BY name');
-	$langs[''] = 'language';
+	$langs[''] = 'select language';
 	echo addSelect('langid', $langs, '', true);
 
 	echo addSubmit('submit', 'submit', "return checkUploadForm();");
