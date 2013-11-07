@@ -440,16 +440,17 @@ function checkFileUpload($errorcode) {
 	}
 }
 
-function downloadProblemZIP($probid) {
+function downloadProblemZIP($probid, $enableSecurityCheck) {
 	global $DB;
 
 	$fetch = 'prob_file';
 	$filename = "problem" . $probid . ".zip";
+	$securityQuery = $enableSecurityCheck ? 'AND contest.enabled = 1' : '';
 
 	$size = $DB->q("MAYBEVALUE SELECT OCTET_LENGTH($fetch)
 	                FROM problem
 	                INNER JOIN contest
-	                ON (problem.cid = contest.cid AND contest.enabled = 1)
+	                ON (problem.cid = contest.cid $securityQuery)
 	                WHERE probid = %s AND allow_submit = 1",
 	                $probid);
 

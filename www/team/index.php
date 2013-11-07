@@ -9,7 +9,7 @@ $title = htmlspecialchars($teamdata['name']);
 
 // Download problem file
 if ( isset($_GET['fetch']) && isset($_GET['probid']) ) {
-	downloadProblemZIP($_GET['probid']);
+	downloadProblemZIP($_GET['probid'], true);
 	exit(0);
 }
 
