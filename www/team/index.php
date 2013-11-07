@@ -64,8 +64,8 @@ if ( ENABLE_WEBSUBMIT_SERVER && $fdata['cstarted'] ) {
 	echo '<input type="file" class="filestyle" data-buttontext="Upload" data-classInput="input-medium" name="code[]" multiple>';
 	echo "</span>";
 
-	// For customizing button style, so I remove this temporarily
-	//echo "<script type=\"text/javascript\">initFileUploads();</script>\n\n";
+	// For customizing button style
+	echo "<script type=\"text/javascript\">window.addEventListener('load', initFileUploads);</script>\n\n";
 
 	$probs = array();
 	foreach($probdata as $probid => $dummy) {

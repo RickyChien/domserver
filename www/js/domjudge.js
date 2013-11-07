@@ -72,11 +72,7 @@ function detectProblemLanguage(filename)
 	if ( parts.length < 2 ) return;
 
 	// problem ID
-
 	var elt=document.getElementById('probid');
-	// the "autodetect" option has empty value
-	if ( elt.value != '' ) return;
-
 	for (i=0;i<elt.length;i++) {
 		if ( elt.options[i].value.toLowerCase() == parts[1] ) {
 			elt.selectedIndex = i;
@@ -84,11 +80,7 @@ function detectProblemLanguage(filename)
 	}
 
 	// language ID
-
 	var elt=document.getElementById('langid');
-	// the "autodetect" option has empty value
-	if ( elt.value != '' ) return;
-
 	var langid = getMainExtension(parts[0]);
 	for (i=0;i<elt.length;i++) {
 		if ( elt.options[i].value == langid ) {
@@ -184,30 +176,16 @@ function initReload(refreshtime)
 }
 
 function initFileUploads() {
-	if (!W3CDOM) return;
-	var selecttext = "Select file...";
-	var fakeFileUpload = document.createElement('span');
-	fakeFileUpload.className = 'fakefile';
-	var input = document.createElement('input');
-	input.type = 'button';
-	input.value = selecttext;
-	input.id = "codebutton";
 	$("#codebutton").filestyle({classInput: "input-small"});
-	fakeFileUpload.appendChild(input);
 	var x = document.getElementsByTagName('input');
+
 	for (var i=0;i<x.length;i++) {
 		if (x[i].type != 'file') continue;
 		if (x[i].parentNode.className != 'fileinputs') continue;
-		x[i].className = 'file hidden';
-		var clone = fakeFileUpload.cloneNode(true);
-		x[i].parentNode.appendChild(clone);
-		x[i].relatedElement = clone.getElementsByTagName('input')[0];
+
 		// stop refresh when clicking a button.
 		x[i].onclick = function() { doReload = false; }
 		x[i].onchange = x[i].onmouseout = function () {
-			if ( this.value == "" ) {
-				this.relatedElement.value = selecttext;
-			} else {
 				var filename = this.value;
 				// Opera prepends a fake fs path: C:\fakepath\. Strip that.
 				var fake = "fakepath\\";
@@ -219,8 +197,6 @@ function initFileUploads() {
 					filename = filename.substr(filename.lastIndexOf(File.separator)+1);
 				}
 				detectProblemLanguage(filename);
-				this.relatedElement.value = filename;
-			}
 		}
 	}
 }
