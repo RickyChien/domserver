@@ -114,7 +114,6 @@ $clarifications = $DB->q('SELECT c.*, u.type AS unread FROM clarification c
                           AND ( c.recipient IS NULL OR c.recipient = %s )
                           ORDER BY c.submittime DESC, c.clarid DESC',
                           $login, $cid, $login);
-
 */
 
 $problems = $DB->q('TABLE SELECT probid, cid, allow_submit, color, prob_file, OCTET_LENGTH(prob_file) AS size FROM problem
