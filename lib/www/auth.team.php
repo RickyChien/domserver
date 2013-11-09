@@ -79,8 +79,10 @@ function show_failed_login($msg)
 	$title = 'Login failed';
 	$menu = false;
 	require(LIBWWWDIR . '/header.php');
+	echo "<div class='main-container'>\n";
 	echo "<h1>Not Authenticated</h1>\n\n<p>$msg</p>\n\n";
 	require(LIBWWWDIR . '/footer.php');
+	echo "</div>\n\n";
 	exit;
 }
 
