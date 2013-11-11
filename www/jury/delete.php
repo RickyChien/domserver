@@ -39,6 +39,8 @@ if ( isset($_POST['cancel']) ) {
 $title = 'Delete from ' . $t;
 require(LIBWWWDIR . '/header.php');
 
+echo "<div class='main-container'>\n";
+
 // Check if we can really delete this.
 $warnings = array();
 foreach($k as $key => $val) {
@@ -100,5 +102,6 @@ if (isset($_POST['confirm'] ) ) {
 	echo addEndForm();
 }
 
+echo "</div>\n";
 
 require(LIBWWWDIR . '/footer.php');
