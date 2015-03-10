@@ -13,7 +13,7 @@ require('init.php');
 requireAdmin();
 
 $cmd = @$_POST['cmd'];
-if ( $cmd != 'add' && $cmd != 'edit' && $cmd != 'batch_adding') error ("Unknown action.");
+if ( $cmd != 'add' && $cmd != 'edit' && $cmd != 'batch_adding'&& $cmd != 'adding_from_csv') error ("Unknown action.");
 
 require(LIBDIR .  '/relations.php');
 
@@ -57,6 +57,35 @@ if ( isset($_POST['cancel']) ) {
 		auditlog($t, $newid, 'added');
 		auditlog('team', $team, 'set password');
 	}
+} elseif ( $cmd == 'adding_from_csv' ) {
+	$csv = file_get_contents($_FILES['file']["tmp_name"]);
+	$namelist = [];
+	while (!feof($csv)){
+		array_push($namelist, fgetcsv($csv));
+	}
+	$namelist = array_unique($namelist);
+	$namelistLength = count($namelist);
+	for ( $i = 0, $namelistLength; $i++ ){
+		$team       = $namelist[i][1];
+		$categories = array(
+			'system'        => 1,
+			'participants'  => 2,
+			'observers'     => 3,
+			'organisation'  => 4,
+		);
+
+		$itemdata = array(
+			'login'      => $team,
+			'name'       => $team,
+			'categoryid' => $categories['system'],
+			'authtoken'  => md5($team . '#' . $team),
+		);
+
+		$newid = $DB->q("RETURNID INSERT INTO $t SET %S", $itemdata);
+		auditlog($t, $newid, 'added');
+		auditlog('team', $team, 'set password');
+	}
+
 } else {
 	$data          =  $_POST['data'];
 	if ( empty($data) ) error ("No data.");
